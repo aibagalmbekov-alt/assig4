@@ -12,11 +12,11 @@ public class Main {
         File[] files = dataFolder.listFiles((dir, name) -> name.endsWith(".json"));
 
         if (files == null || files.length == 0) {
-            System.out.println("❌ No JSON files found in /data folder");
+            System.out.println(" No JSON files found in /data folder");
             return;
         }
 
-        System.out.println("📁 Found " + files.length + " JSON files.");
+        System.out.println(" Found " + files.length + " JSON files.");
 
         try (PrintWriter writer = new PrintWriter(new FileWriter("results.csv"))) {
             // Заголовок CSV
@@ -24,11 +24,11 @@ public class Main {
 
             // Перебираем все JSON файлы
             for (File file : files) {
-                System.out.println("⚙️ Processing: " + file.getName());
+                System.out.println("⚙Processing: " + file.getName());
 
                 Graph g = GraphUtils.loadFromJson(file.getPath());
                 if (g == null || g.getVertices().isEmpty()) {
-                    System.out.println("⚠️ Skipping " + file.getName() + " (empty or invalid)");
+                    System.out.println("⚠ Skipping " + file.getName() + " (empty or invalid)");
                     continue;
                 }
 
@@ -63,12 +63,12 @@ public class Main {
                 // === Запись в CSV ===
                 writer.printf(Locale.US, "%d,%.2f,%.2f,%.2f,%.2f%n", n, sccTime, topoTime, shortTime, longTime);
 
-                System.out.printf("✅ Saved: %s (n=%d)\n", file.getName(), n);
+                System.out.printf("Saved: %s (n=%d)\n", file.getName(), n);
             }
 
-            System.out.println("\n📊 All results successfully written to results.csv!");
+            System.out.println("\n All results successfully written to results.csv!");
         } catch (IOException e) {
-            System.err.println("❌ Error writing to CSV: " + e.getMessage());
+            System.err.println(" Error writing to CSV: " + e.getMessage());
         }
     }
 }

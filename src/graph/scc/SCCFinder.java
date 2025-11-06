@@ -6,7 +6,7 @@ import java.util.*;
 public class SCCFinder {
 
     public static SCCResult findSCC(Graph g) {
-        SCCResult res = new SCCResult(); // ✅ теперь работает, т.к. добавили пустой конструктор
+        SCCResult res = new SCCResult(); //
 
         Set<String> visited = new HashSet<>();
         Stack<String> stack = new Stack<>();
@@ -27,7 +27,7 @@ public class SCCFinder {
             if (!visited.contains(v)) {
                 List<String> component = new ArrayList<>();
                 dfs2(v, gt, visited, component);
-                res.addComponent(component); // ✅ теперь метод есть
+                res.addComponent(component);
             }
         }
 

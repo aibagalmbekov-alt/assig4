@@ -18,7 +18,7 @@ public class PathResult {
         return executionTimeMs;
     }
 
-    // ✅ Метод для построения пути (чтобы .getPath() работал)
+
     public List<String> getPath(String target) {
         List<String> path = new ArrayList<>();
         String current = target;

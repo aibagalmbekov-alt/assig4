@@ -16,9 +16,9 @@ public class Metrics {
             // Записываем строку с результатами
             writer.write(n + "," + sccTime + "," + topoTime + "," + shortTime + "," + longTime + "\n");
 
-            System.out.println("📊 Results saved to " + filename);
+            System.out.println(" Results saved to " + filename);
         } catch (IOException e) {
-            System.err.println("❌ Error writing CSV: " + e.getMessage());
+            System.err.println(" Error writing CSV: " + e.getMessage());
         }
     }
 }
